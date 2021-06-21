@@ -7,15 +7,15 @@ export const AddCategory = ( { setCategories } ) => { // Ponemos entre llaves la
 
     const handleInputChange = ( e ) => { // e: "evento"
         //console.log(e.target.value);
-        setInputValue( e.target.value ); //
+        setInputValue( e.target.value ); //e.target.value es donde se guarda lo que ingresa el usuario que lo termina guardando en inputValue
     }
 
-    const handleSubmit = ( e ) => {
-        e.preventDefault(); // 
+    const handleSubmit = ( e ) => { // con esta funcion al apretar enter se me dispara la accion que quiero que se realice
+        e.preventDefault(); // Como por defecto el formulario del <form></form> es que se haga el posteo del formulario y a su vez un refresh completo de la pagina. Como no quiero que eso suceda, uso e.preventDefault() del evento.
 
-        if( inputValue.trim().length > 2 ) { //
-            setCategories( cats => [ inputValue, ...cats ] );
-            setInputValue('');
+        if( inputValue.trim().length > 2 ) { // Aca se esta viendo si el string sin espacios es mayor a 2 asi no modifica nada si ingresamos nada y tocamos enter.
+            setCategories( cats => [ inputValue, ...cats ] ); // se esta recibiendo un arreglo que es cats que viene de la componente GifExpertApp
+            setInputValue(''); // para que no se haga un doble posteo.
         }
 
         //console.log('Submit hecho');
@@ -25,7 +25,7 @@ export const AddCategory = ( { setCategories } ) => { // Ponemos entre llaves la
         <form onSubmit={ handleSubmit }>
             <input 
                 type="text"
-                value={ inputValue }
+                value={ inputValue } 
                 onChange={ handleInputChange }
             />
         </form>

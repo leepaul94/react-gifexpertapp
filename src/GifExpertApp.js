@@ -3,10 +3,11 @@ import { AddCategory } from './components/AddCategory';
 import { GifGrid } from './components/GifGrid';
 
 
-export const GifExpertApp = () => {
+export const GifExpertApp = ({ defaultCategories = [] }) => { // el defaultCategories me sirve para las pruebas para poder mandar un arreglo de categorias y realizar las respectivas pruebas.
 
     // const categories = ['One Punch', 'Samurai X', 'Dragon Ball'];
-    const [categories, setCategories] = useState(['One Punch']);
+    // const [categories, setCategories] = useState(['One Punch']);
+    const [categories, setCategories] = useState( defaultCategories );
 
     // const handleAdd = () => {
     //     // setcategories([...categories, 'HunterXHunter']);

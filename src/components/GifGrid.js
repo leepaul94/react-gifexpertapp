@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { useFetchGifs } from '../hooks/useFetchGifs'
 import { GifGridItem } from './GifGridItem';
 
@@ -6,7 +7,7 @@ import { GifGridItem } from './GifGridItem';
 export const GifGrid = ({ category }) => {
 
     
-    const { data:images, loading } = useFetchGifs( category ); // cada vez que 
+    const { data:images, loading } = useFetchGifs( category ); // cada vez que esta componente cambie se va a disparar el useFetchGifs.
 
     // useEffect( () => {
     //     getGifs( category ) // Hace la peticion para las imagenes y luego las coloca con el .then en la varible images.
@@ -34,4 +35,8 @@ export const GifGrid = ({ category }) => {
             </div>
         </>
     )
+}
+
+GifGrid.propTypes = {
+    category: PropTypes.string.isRequired
 }

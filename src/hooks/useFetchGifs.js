@@ -9,7 +9,7 @@ export const useFetchGifs = ( category ) => {
         loading: true
     });
 
-    useEffect( () => {
+    useEffect( () => { // Me permite ejecutar cierto codigo de manera condicional
 
         getGifs( category )
             .then( imgs => {
@@ -21,7 +21,7 @@ export const useFetchGifs = ( category ) => {
                 
             } )
 
-    }, [ category ]);
+    }, [ category ]); // una lista de dependencia el cual react va a ejecutar nuevamente el useEffect solo si dicha lista sufre algun cambio, es por eso que decimos que el useEffect se ejecuta de manera condicional.
 
     return state; // { data: [], loading: state}
     
